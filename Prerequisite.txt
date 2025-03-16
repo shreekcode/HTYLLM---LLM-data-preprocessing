@@ -1,0 +1,13 @@
+Step 1: Install datasets library using pip command.
+        Alternatively can use the requirements file to setup. (Created using pip freeze and contains alot of unwanted requirements.)
+
+Step 2: Setup env variables.
+        Run following commmads:
+            export PROC_RANK=0
+            export TOTAL_PROCS=1
+
+Step 3: Run the python script:
+            python text_preprocessor.py
+
+
+Note: These are command for the linux terminal.
