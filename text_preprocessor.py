@@ -8,12 +8,12 @@ def preprocess_text(text):
 def load_ds(rank, total_procs):
     # TODO: There should be some logic about loading the dataset here. As we only have 2 Gigabytes of memory available per process, maybe that should play a role as well ;)
     dataset=load_dataset("allenai/c4", "multilingual", split="train", streaming=True)
-    c=0 #count for tracking samples number
+    print(dataset.shard(num_shards=total_procs, index=rank))
+
     for i, data in enumerate(dataset.shard(num_shards=total_procs, index=rank)):
-        #if c>=500: #For running on my laptop with small sample size 
-            #break
+        if i>=500: #For running on my laptop with small sample size 
+            break
         yield data['text']
-        c+=1
     return data
     #raise NotImplementedError("This function has not been implemented yet.")
 
