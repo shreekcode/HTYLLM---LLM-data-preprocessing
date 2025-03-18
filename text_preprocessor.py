@@ -14,7 +14,6 @@ def load_ds(rank, total_procs):
         if i>=500: #For running on my laptop with small sample size 
             break
         yield data['text']
-    return data
     #raise NotImplementedError("This function has not been implemented yet.")
 
 def write_preprocessed_text(preprocessed_text, rank):
